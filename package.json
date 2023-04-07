@@ -1,0 +1,11 @@
+{
+  "name": "eslint_plugin-custom-plugin",
+  "version": "1.0.0",
+  "description": "Custom linter rules for my frontend-application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NK",
+  "license": "ISC"
+}
