@@ -9,4 +9,4 @@
 // npm link eslint-plugin-custom-plugin // устанавливаем в проекте
 
 // Установить в плагины линта: plugins: [ 'custom-plugin', ... ],
-// Установить правило: rules: { 'custom-plugin/path-checker': 'warn', ... }
+// Установить правило: rules: { 'custom-plugin/path-checker': ['warn', { alias: '@' }] } // опции извне

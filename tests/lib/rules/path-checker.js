@@ -16,16 +16,31 @@ const rule = require("../../../lib/rules/path-checker"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+	parserOptions: { ecmaVersion: 6, sourceType: 'module' }, // опции парсинга (под ES)
+});
 ruleTester.run("path-checker", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\shared\\ui',
+		code: "import { Icon } from '../Icon/Icon'",
+		errors: [],
+	},
   ],
 
   invalid: [
-    {
-      code: "",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
-    },
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\shared\\ui',
+		code: "import { Icon } from 'shared/ui/Icon/Icon'",
+		errors: [{ message: "В рамках слоя пути должны быть относительными" }], // , type: "Me too"
+	},
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\shared\\ui',
+		code: "import { Icon } from '@/shared/ui/Icon/Icon'",
+		errors: [{ message: "В рамках слоя пути должны быть относительными" }], // , type: "Me too"
+		options: [{
+			alias: '@'
+		}]
+	},
   ],
 });
