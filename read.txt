@@ -2,11 +2,12 @@
 // https://www.npmjs.com/package/generator-eslint
 // npm i -g yo
 // npm i -g generator-eslint
+// yo eslint:rule
 
 // https://eslint.org/docs/latest/extend/plugins
 
 // npm link // разворачиваем локально пакет
-// npm link eslint-plugin-custom-plugin // устанавливаем в проекте
+// npm link eslint-plugin-custom-plugin --save-dev // устанавливаем в проекте
 
 // Установить в плагины линта: plugins: [ 'custom-plugin', ... ],
 // Установить правило: rules: { 'custom-plugin/path-checker': ['warn', { alias: '@' }] } // опции извне
