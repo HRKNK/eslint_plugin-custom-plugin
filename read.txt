@@ -10,4 +10,16 @@
 // npm link eslint-plugin-custom-plugin --save-dev // устанавливаем в проекте
 
 // Установить в плагины линта: plugins: [ 'custom-plugin', ... ],
-// Установить правило: rules: { 'custom-plugin/path-checker': ['warn', { alias: '@' }] } // опции извне
+// Установить правило: rules: {
+
+    // плагин на проверку путей импорта // ['error' , { alias: '@' }]
+	'custom-plugin/path-checker': 'error', 
+	// плагин на проверку импорта из паблика // ['error' , { alias: '@', testFiles: [] }]
+    'custom-plugin/public-imports': ['error', { 
+		testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+	}],
+
+}
+
+// Библиотека регулярок для путей // https://www.npmjs.com/package/micromatch
+// npm i micromatch

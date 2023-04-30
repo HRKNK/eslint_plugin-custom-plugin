@@ -27,6 +27,24 @@ ruleTester.run("public-imports", rule, {
 		errors: [],
 		options: aliasOptions,
 	},
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\shared\\ui\\file.test.ts',
+		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+		errors: [],
+		options: [{
+			alias: '@',
+			testFiles: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+		}],
+	},
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\shared\\ui\\StoreDecorator.tsx',
+		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+		errors: [],
+		options: [{
+			alias: '@',
+			testFiles: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+		}],
+	}
   ],
 
   invalid: [
@@ -35,5 +53,23 @@ ruleTester.run("public-imports", rule, {
 		errors: [{ message: "Импорт выполнен не из Public API (public.ts)"}],
 		options: aliasOptions,
 	},
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\entities\\StoreDecorator.tsx',
+		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing/file.tsx'",
+		errors: [{message: 'Импорт выполнен не из Public API (public.ts)'}],
+		options: [{
+			alias: '@',
+			testFiles: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+		}],
+	},
+	{
+		filename: 'C:\\Users\\User\\Desktop\\JS\\Project_Folder\\src\\entities\\forbidden.ts',
+		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+		errors: [{message: 'Импорт {тестовых данных} выполнен не из Public API (testing.ts)'}],
+		options: [{
+		alias: '@',
+			testFiles: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+		}],
+	}
   ],
 });
