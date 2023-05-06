@@ -49,7 +49,7 @@ ruleTester.run("public-imports", rule, {
 
   invalid: [
 	{
-		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model/file.ts'",
+		code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model/public'",
 		errors: [{ message: "Импорт выполнен не из Public API (public.ts)"}],
 		options: aliasOptions,
 	},
