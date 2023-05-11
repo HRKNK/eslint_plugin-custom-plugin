@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-custom-plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Custom linter rules for my frontend-application",
   "keywords": [
     "eslint",
